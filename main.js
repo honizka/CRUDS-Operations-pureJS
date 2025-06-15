@@ -9,6 +9,7 @@ let category = document.getElementById('category');
 let submit = document.getElementById('submit');
 
 // get total
+
 function getTotal(){
     if(price.value != ''){
         let result = (+price.value + +taxes.value + +ads.value) - +discount.value;
@@ -22,7 +23,37 @@ function getTotal(){
 }
 
 // create product
-// sace localstorage
+
+let dataPro;
+if(localStorage.product != null){
+    dataPro = JSON.parse(localStorage.product);
+}else{
+    dataPro = [];
+}
+
+submit.onclick = function(){
+    let newPro = {
+        title:title.value,
+        price:price.value,
+        taxes:taxes.value,
+        discount:discount.value,
+        total:total.innerHTML,
+        count:count.value,
+        category:category.value,
+    }
+// save localstorage
+
+    dataPro.push(newPro);
+    localStorage.setItem('product',JSON.stringify(dataPro));
+    console.log(dataPro);
+}
+
+
+
+
+
+
+
 // clear inputs
 // read
 // count
