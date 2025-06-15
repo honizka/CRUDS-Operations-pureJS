@@ -84,6 +84,14 @@ function showData(){
                     </tr>`
     }
     document.getElementById('tbody').innerHTML=table;
+    
+    let btnDelete = document.getElementById('deleteAll');
+    if(dataPro.length>0){
+        btnDelete.innerHTML =`
+        <button onclick="deleteAll()">delete all</button>`
+    } else{
+        btnDelete.innerHTML='';
+    }
 }
 
 showData();
@@ -93,6 +101,13 @@ showData();
 function deleteData(i){
     dataPro.splice(i,1);
     localStorage.product = JSON.stringify(dataPro);
+    showData();
+}
+
+// Delete All
+function deleteAll(){
+    localStorage.clear();
+    dataPro.splice(0);
     showData();
 }
 
