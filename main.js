@@ -42,9 +42,19 @@ submit.onclick = function(){
         count:count.value,
         category:category.value,
     }
-// save localstorage
 
-    dataPro.push(newPro);
+    // count - creating multiple duplicated products at once 
+
+    if(newPro.count>1){
+        for (let i = 0; i < newPro.count; i++) {
+            dataPro.push(newPro);   
+        }
+    }else{
+        dataPro.push(newPro);
+    }
+
+    // save localstorage
+
     localStorage.setItem('product',JSON.stringify(dataPro));
     
     clearData();
@@ -88,7 +98,7 @@ function showData(){
     let btnDelete = document.getElementById('deleteAll');
     if(dataPro.length>0){
         btnDelete.innerHTML =`
-        <button onclick="deleteAll()">delete all</button>`
+        <button onclick="deleteAll()">Delete all ${dataPro.length}</button>`
     } else{
         btnDelete.innerHTML='';
     }
@@ -111,7 +121,9 @@ function deleteAll(){
     showData();
 }
 
-// count
+
+
+
 // update
 // search
 // clean data 
