@@ -69,6 +69,3 @@ Contributions are welcome! Please open an issue first to discuss what you'd like
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-**Note**: Replace `your-username` in the clone URL with your actual GitHub username. Add an actual screenshot named `screenshot.png` in the root directory for the image to display properly.
