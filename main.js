@@ -36,6 +36,7 @@ submit.onclick = function(){
         title:title.value,
         price:price.value,
         taxes:taxes.value,
+        ads:ads.value,
         discount:discount.value,
         total:total.innerHTML,
         count:count.value,
@@ -47,6 +48,7 @@ submit.onclick = function(){
     localStorage.setItem('product',JSON.stringify(dataPro));
     
     clearData();
+    showData();
 }
 
 // clear inputs
@@ -62,12 +64,32 @@ function clearData(){
     category.value='';
 }
 
+// read product and show to tbody
+
+function showData(){
+    let table = '';
+    for (let i = 0; i < dataPro.length; i++) {
+        table += `
+            <tr>
+                <td>${i}</td>
+                <td>${dataPro[i].title}</td>    
+                <td>${dataPro[i].price}</td>
+                <td>${dataPro[i].taxes}</td>
+                <td>${dataPro[i].ads}</td>
+                <td>${dataPro[i].discount}</td>
+                <td>${dataPro[i].total}</td>
+                <td>${dataPro[i].category}</td>
+                <td><button id="update">update</button></td>
+                <td><button id="delete">delete</button></td>
+                    </tr>`
+    }
+    document.getElementById('tbody').innerHTML=table;
+}
+
+showData();
 
 
 
-
-
-// read
 // count
 // delete
 // update
